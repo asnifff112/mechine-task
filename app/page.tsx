@@ -12,7 +12,6 @@ function box (){
         meshref.current.rotation.y +=delta
         meshref.current.rotation.x +=delta
     });
-
     return (
         <mesh ref={meshref} castShadow receiveShadow>
             <boxGeometry args={[1.5,1.5,1.5]}/>
