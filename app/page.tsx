@@ -22,7 +22,7 @@ function Box() {
   );
 }
 
-/* 🔹 Scene */
+
 export default function Home() {
   return (
     <main className="w-screen h-screen">
@@ -30,7 +30,7 @@ export default function Home() {
         shadows
         camera={{ position: [3, 3, 6], fov: 50 }}
       >
-        {/* Lights */}
+       
         <ambientLight intensity={0.4} />
         <directionalLight
           position={[5, 5, 5]}
