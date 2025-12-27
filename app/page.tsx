@@ -38,10 +38,8 @@ export default function Home() {
           castShadow
         />
 
-        {/* Object */}
         <Box />
 
-        {/* Controls */}
         <OrbitControls enableZoom />
 
       </Canvas>
