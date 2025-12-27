@@ -5,7 +5,7 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 
-/* 🔹 Rotating Box Component */
+
 function Box() {
   const meshRef = useRef<THREE.Mesh>(null!);
 
