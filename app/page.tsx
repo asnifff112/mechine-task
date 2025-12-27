@@ -39,7 +39,6 @@ export default function Home() {
         <Box />
 
         <OrbitControls enableZoom />
-
       </Canvas>
     </main>
   );
