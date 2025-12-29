@@ -6,5 +6,10 @@ import { useRef } from "react";
 import * as THREE from "three"
 
 function Box(){
-  const meshref= useRef<THREE.Mesh>(null)
+  const meshRef= useRef<THREE.Mesh>(null!)
+
+  useFrame((_, delta) => {
+    meshRef.current.rotation.y += delta;
+    meshRef.current.rotation.x += delta * 0.5;
+  });
 }
