@@ -11,12 +11,12 @@ function Box(){
 
   useFrame((_, delta) => {
     meshRef.current.rotation.y += delta;
-    meshRef.current.rotation.x += delta * 0.5;
+    meshRef.current.rotation.x += delta * 1;
   });
 
   return (
     <mesh ref={meshRef} castShadow receiveShadow>
-      <sphereGeometry args={[1,32,32]}/>
+      <boxGeometry args={[10,10,10]}/>
       <meshStandardMaterial color="blue"/>
     </mesh>
   )
@@ -30,15 +30,15 @@ export default function Home (){
      shadows
      camera={{position:[3,3,6], fov :50}}   
    >
-    <ambientLight intensity={0.5}/>
+    <ambientLight intensity={5}/>
     <directionalLight
      position={[5,5,5]}
-     intensity={1}
+     intensity={5}
      castShadow
     />
 
    <Box/>
-   
+   <OrbitControls enableZoom/>
 
    </Canvas>
 
