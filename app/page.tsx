@@ -36,6 +36,10 @@ export default function Home (){
      intensity={1}
      castShadow
     />
+
+   <Box/>
+   
+
    </Canvas>
 
  </main>
