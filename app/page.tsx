@@ -23,5 +23,21 @@ function Box(){
 }
 
 export default function Home (){
+ return(
+ <main className="w-screen h-screen">
 
+   <Canvas
+     shadows
+     camera={{position:[3,3,6], fov :50}}   
+   >
+    <ambientLight intensity={0.5}/>
+    <directionalLight
+     position={[5,5,5]}
+     intensity={1}
+     castShadow
+    />
+   </Canvas>
+
+ </main>
+ )
 }
