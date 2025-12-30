@@ -9,7 +9,7 @@ import { Model } from "./model";
 function Rotation() {
   const boxRef = useRef<THREE.Mesh>(null!);
   const sphereRef = useRef<THREE.Mesh>(null!);
-  const triangleRef = useRef<THREE.Mesh>(null!);
+  
 
   useFrame((_, delta) => {
     boxRef.current.rotation.y += delta;
