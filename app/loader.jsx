@@ -1,6 +1,8 @@
+"use client";
+
 import { Html, useProgress } from "@react-three/drei";
 
-function Loader() {
+export default function Loader() {
   const { progress } = useProgress();
 
   return (
