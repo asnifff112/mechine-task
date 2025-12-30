@@ -17,18 +17,17 @@ function Rotation() {
     sphereRef.current.rotation.y += delta;
     sphereRef.current.rotation.x += delta * 0.5;
 
-    triangleRef.current.rotation.y += delta;
   });
 
   return (
     <group>
-      {/* Box */}
+     
       <mesh position={[-1.2, 0, 0]} ref={boxRef}>
         <boxGeometry args={[1, 1, 1]} />
         <meshStandardMaterial color="orange" />
       </mesh>
 
-      {/* Sphere */}
+     
       <mesh position={[1.2, 0, 0]} ref={sphereRef}>
         <sphereGeometry args={[0.6, 32, 32]} />
         <meshStandardMaterial color="skyblue" />
