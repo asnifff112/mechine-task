@@ -1,58 +1,53 @@
-"use client";
+"use client"
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
-import * as THREE from "three";
-import { Model } from "./model.js"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger";
+import * as THREE from "three"
+import React from 'react'
+import { OrbitControls } from "@react-three/drei";
+
+gsap.registerPlugin(ScrollTrigger)
 
 
+  const meshRef = useRef<THREE.Mesh> (null!)
+  useFrame(() =>{
+    meshRef.current.rotation.y 
+    meshRef.current.rotation.x * 1.5
+  })
 
-function Rotation() {
-  const boxRef = useRef<THREE.Mesh>(null!);
-  const sphereRef = useRef<THREE.Mesh>(null!);
-  
+ 
 
-  useFrame((_, delta) => {
-    boxRef.current.rotation.y += delta;
-    boxRef.current.rotation.x += delta * 0.5;
 
-    sphereRef.current.rotation.y += delta;
-    sphereRef.current.rotation.x += delta * 0.5;
+export default function page() {
 
-  });
 
-  return (
-    <group>
-     
-      <mesh position={[-1.2, 0, 0]} ref={boxRef}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="orange" />
-      </mesh>
-
-     
-      <mesh position={[1.2, 0, 0]} ref={sphereRef}>
-        <sphereGeometry args={[0.6, 32, 32]} />
-        <meshStandardMaterial color="skyblue" />
-      </mesh>
-
-  
-    </group>
-  );
-}
-
-export default function Home() {
   return (
     <main className="w-screen h-screen">
-      <Canvas camera={{ position: [3, 3, 6], fov: 50 }}>
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[5, 5, 5]} intensity={1} />
+    <Canvas
+    >
+
+        <mesh ref={[meshRef]}>
+          <meshStandardMaterial 
+          color="blue"/>
+          <boxGeometry 
+          args={[1,1,0]} />
+        </mesh>
+
+          <mesh ref={[meshRef]}>
+          <meshStandardMaterial 
+          color="red"/>
+          <sphereGeometry
+          args={[32,32,1]} />
+        </mesh>
+
         
-        <Model />
-        
-        <Rotation />
-        <OrbitControls />
-      </Canvas>
+
+    <ambientLight/>
+    <spotLight/>
+    <OrbitControls/>
+    </Canvas>
     </main>
-  );
+  )
 }
