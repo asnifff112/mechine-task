@@ -4,9 +4,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
-import { Model } from "./model";
-import { Suspense } from "react";
-import Loader from "./loader";
+import { Model } from "./model.js"
+
 
 
 function Rotation() {
@@ -48,9 +47,9 @@ export default function Home() {
       <Canvas camera={{ position: [3, 3, 6], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
-        <Suspense fallback={<Loader />}>
+        
         <Model />
-        </Suspense>
+        
         <Rotation />
         <OrbitControls />
       </Canvas>
