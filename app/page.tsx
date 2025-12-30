@@ -51,7 +51,6 @@ export default function Home() {
         <Suspense fallback={<Loader />}>
         <Model />
         </Suspense>
-
         <Rotation />
         <OrbitControls />
       </Canvas>
