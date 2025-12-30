@@ -1,47 +1,42 @@
 "use client";
 
-import { Canvas, useFrame,ThreeElement } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 
-function Rotation(){
-  const groupRef = useRef<THREE.Group>(null!)
-  const groupReff = useRef<THREE.Group>(null!)
+function Rotation() {
+  const boxRef = useRef<THREE.Mesh>(null!);
+  const sphereRef = useRef<THREE.Mesh>(null!);
+  const triangleRef = useRef<THREE.Mesh>(null!);
 
-  useFrame((_,delta)=>{
-    groupRef.current.rotation.y += delta;
-    groupRef.current.rotation.x += delta * 0.5
-  })
+  useFrame((_, delta) => {
+    boxRef.current.rotation.y += delta;
+    boxRef.current.rotation.x += delta * 0.5;
 
-   useFrame((_,delta)=>{
-    groupReff.current.rotation.y += delta;
-    groupReff.current.rotation.x += delta * 0.5
-  })
-  return(
-     <group >
-        
-          <mesh position={[-1.2, 0, 0]} ref={groupRef}>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color="orange" />
-          </mesh>
+    sphereRef.current.rotation.y += delta;
+    sphereRef.current.rotation.x += delta * 0.5;
 
-        
-          <mesh position={[1.2, 0, 0]} ref={groupReff}>
-            <sphereGeometry args={[0.6, 32, 32]} />
-            <meshStandardMaterial color="skyblue" />
-          </mesh>
+    triangleRef.current.rotation.y += delta;
+  });
 
-          <mesh position={[2.2, 0, 0]}>
-  <bufferGeometry>
-    
-  </bufferGeometry>
+  return (
+    <group>
+      {/* Box */}
+      <mesh position={[-1.2, 0, 0]} ref={boxRef}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="orange" />
+      </mesh>
 
-  <meshStandardMaterial color="hotpink" side={2} />
-</mesh>
+      {/* Sphere */}
+      <mesh position={[1.2, 0, 0]} ref={sphereRef}>
+        <sphereGeometry args={[0.6, 32, 32]} />
+        <meshStandardMaterial color="skyblue" />
+      </mesh>
 
-        </group>    
-  )
+  
+    </group>
+  );
 }
 
 export default function Home() {
@@ -50,10 +45,10 @@ export default function Home() {
       <Canvas camera={{ position: [3, 3, 6], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
-        
-       <Rotation/>
-       <OrbitControls />
-       </Canvas>
+
+        <Rotation />
+        <OrbitControls />
+      </Canvas>
     </main>
   );
 }
