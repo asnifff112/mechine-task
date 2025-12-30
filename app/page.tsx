@@ -5,6 +5,9 @@ import { OrbitControls } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import { Model } from "./model";
+import { Suspense } from "react";
+import Loader from "./loader";
+
 
 function Rotation() {
   const boxRef = useRef<THREE.Mesh>(null!);
@@ -45,7 +48,10 @@ export default function Home() {
       <Canvas camera={{ position: [3, 3, 6], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
-        <Model/>
+      <Suspense fallback={<Loader />}>
+  <Model />
+</Suspense>
+
         <Rotation />
         <OrbitControls />
       </Canvas>
