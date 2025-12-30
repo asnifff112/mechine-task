@@ -44,11 +44,9 @@ export default function Home() {
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
 
-<Rotation/>
+      <Rotation/>
        
-       
-
-        <OrbitControls />
+     <OrbitControls />
       </Canvas>
     </main>
   );
