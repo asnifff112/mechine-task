@@ -43,10 +43,9 @@ export default function Home() {
       <Canvas camera={{ position: [3, 3, 6], fov: 50 }}>
         <ambientLight intensity={0.4} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
-
-      <Rotation/>
-      <OrbitControls />
-      </Canvas>
+       <Rotation/>
+       <OrbitControls />
+       </Canvas>
     </main>
   );
 }
