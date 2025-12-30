@@ -31,9 +31,7 @@ function Rotation(){
             <sphereGeometry args={[0.6, 32, 32]} />
             <meshStandardMaterial color="skyblue" />
           </mesh>
-        </group>
-
-       
+        </group>    
   )
 }
 
